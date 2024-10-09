@@ -2,24 +2,27 @@
 
 namespace RenderWareFile
 {
-    public struct Vertex3
+    public struct Vertex4
     {
         public float X { get; set; }
         public float Y { get; set; }
         public float Z { get; set; }
+        public int W { get; set; }
 
-        public Vertex3(float a, float b, float c)
+        public Vertex4(float x, float y, float z, int w)
         {
-            X = a;
-            Y = b;
-            Z = c;
+            X = x;
+            Y = y;
+            Z = z;
+            W = w;
         }
 
-        public Vertex3(BinaryReader reader)
+        public Vertex4(BinaryReader reader)
         {
             X = reader.ReadSingle();
             Y = reader.ReadSingle();
             Z = reader.ReadSingle();
+            W = reader.ReadInt32();
         }
     }
 }
